@@ -9,7 +9,38 @@
     <link rel="stylesheet" href="bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-</head>
+    <script src="jquery.js"></script>
+    <script>
+         $(function(){
+            $("#submitBtn").click(function(){
+
+            });
+             var email = $("#email").val();
+             var password = $("#password").val();
+
+             // not lets valid email
+             // example of valid emails are
+             // example@website.co.uk
+             // example@outlook.com
+             // example@gmail.com, in short a valid email should be (example@domainName.com)
+
+             if(email.indexOf("@") < 0 || email.indexOf(".") < 0){
+                alert("invalid email");
+                // email must contain @ and dot(.)
+                return;
+              
+             }
+             // validate password
+             // allow password to be between  8 and 16 characters
+             if( !(password.length >= 8 && password.length <= 16) ){
+               alert("password must be between 8 and 16 characters");
+               return;
+             }
+             
+             document.write("Looks Good Validation")
+         });
+    </script>
+  </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-warning">
         <div class="container-fluid">
@@ -89,16 +120,16 @@
         <form>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Email" aria-describedby="emailHelp">
             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password">
           </div>
           <div class="mb-3 form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            <label class="form-check-label" for="exampleCheck1">Remember Me</label>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
